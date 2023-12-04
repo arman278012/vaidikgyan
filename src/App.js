@@ -9,34 +9,44 @@ import Login from './Components/Login';
 import OtpVerification from './Components/OtpVerification';
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Mathura from './Components/Mathura';
+import { useContext } from 'react';
+import { AppContext } from './Components/AuthContext';
+import RegistrationModal from './Components/RegistrationModal';
 
-function App(verifyOtp) {
-  const handleOtpChange = (verifyOtp) => {
-    console.log('OTP entered:', verifyOtp);
-    // You can perform additional actions with the OTP, such as validation or submission.
+function App() {
+  const handleOtpChange = () => {
   };
+
+  const { showSuccessModal, hideNav } = useContext(AppContext)
+
+
   return (
     <div className="App">
+      {
+        showSuccessModal ? (<RegistrationModal />) : (<></>)
+      }
+
       <BrowserRouter>
-        <TopBar></TopBar>
-        <Navbar></Navbar>
-        {/* <Hero></Hero> */}
+        {
+          hideNav ? (<></>) : (<div>
+            <TopBar></TopBar>
+            <Navbar></Navbar>
+          </div>)
+        }
         <Routes>
+          {/* <Route path='/modal' element={<RegistrationModal />} /> */}
           <Route path='/' element={<Hero />} />
           <Route path='/signin' element={<Login />} />
           <Route path='/signup' element={<SignUp />} />
           <Route path='/otp' element={<OtpVerification onChange={handleOtpChange} />} />
-          <Route path='/mathura' element={<Mathura />}/>
+          <Route path='/mathura' element={<Mathura />} />
+
         </Routes>
-        <Footer></Footer>
+        {
+          hideNav ? (<></>) : (<Footer></Footer>)
+        }
       </BrowserRouter>
-
-
-
-      {/* <SignUp></SignUp>
-      <Login></Login> */}
-      {/* <OtpVerification></OtpVerification> */}
-    </div>
+    </div >
   );
 }
 

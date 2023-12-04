@@ -1,38 +1,27 @@
 import React from 'react'
 import '../Styling/Mathura.css'
 import { AiOutlineHeart } from 'react-icons/ai'
+import { IoIosArrowForward } from "react-icons/io";
+import { Link } from 'react-router-dom';
 
 const Mathura = () => {
-
-    const mathura_banner = require('../Images/mathura-category.png')
-    const vertlicle_line = require('../Images/mathura-line.png')
-    const worship_items = require('../Images/worshipItems.png')
-    const rahda_krishna = require('../Images/brass-murthi.png')
-    const religious_books = require('../Images/religiousBooks.png')
-    const religious_jap_malas = require('../Images/religious-jap-malas.png')
-    const clothings = require('../Images/clothing.png')
-    const others = require('../Images/others.png')
-    const rahda_krishna_2 = require('../Images/radha-krishna.png')
-    const unknown_god = require('../Images/radha-banner.png')
-    const ramayana = require('../Images/ramayan.png')
-    const mala = require('../Images/mala.png')
-    const peacock = require('../Images/peacock.png')
-    const om_girl = require('../Images/om ldki.png')
-    const mala2 = require('../Images/mala2.png')
-    const agarbatti = require('../Images/agarbatti.png')
-    const laddu_Store = require('../Images/ladduRakhneWala.png')
-    const ramanayan = require('../Images/ramayan.png')
-    const Sandalwood = require('../Images/chandanKilakdi.png')
-    const shankh = require('../Images/shankh.png')
 
 
 
     return (
         <div className='mathura-category w-[100%] mt-10'>
 
+            <div className='flex gap-4 w-[80vw] justify-start mx-auto mb-[10px]'>
+                <Link to='/'><p>Home</p></Link>
+                <IoIosArrowForward className='mt-[5px] text-[#FF5D00]' />
+                <p>Categories</p>
+                <IoIosArrowForward className='mt-[5px] text-[#FF5D00]' />
+                <p>Mathura Vrindavan</p>
+            </div>
+
             {/*Section-1 Banner-section */}
             <div className='mathura-banner'>
-                <img src={mathura_banner} alt="" className='w-[100%]' />
+                <img src='/images/mathura-category.png' alt="" className='w-[100%]' />
             </div>
 
 
@@ -55,7 +44,7 @@ const Mathura = () => {
             {/*Section-3  vertical-line-section */}
 
             <div className='vertlicle-line mt-[30px] '>
-                <img src={vertlicle_line} alt="" className='w-[100%] ' />
+                <img src='/images/mathura-line.png' alt="" className='w-[100%] ' />
             </div>
 
             {/*Section-4  shop-by-categories-section */}
@@ -66,32 +55,32 @@ const Mathura = () => {
 
                 <div className="shopping-items flex justify-center items-center gap-[48px]">
                     <div className="worship-items text-center gap-[13px]">
-                        <img src={worship_items} alt="" className='' />
+                        <img src='/images/worshipItems.png' alt="" className='' />
                         <p className='font-medium text-[20px] leading-[30px] text-[#120904]'>Worship Items</p>
                     </div>
 
-                    <div className="worship-items  text-center gap-[13px]">
-                        <img src={rahda_krishna} alt="" />
+                    <div className="Brass-Murthi  text-center gap-[13px]">
+                        <img src='/images/brass-murthi.png' alt="" />
                         <p className='font-medium text-[20px] leading-[30px] text-[#120904]'>Brass Murthi</p>
                     </div>
 
-                    <div className="worship-items  text-center gap-[13px]">
-                        <img src={religious_books} alt="" />
+                    <div className="Religious-Books  text-center gap-[13px]">
+                        <img src='/images/religiousBooks.png' alt="" />
                         <p className='font-medium text-[20px] leading-[30px] text-[#120904]'>Religious Books</p>
                     </div>
 
-                    <div className="worship-items  text-center gap-[13px]">
-                        <img src={religious_jap_malas} alt="" />
+                    <div className="Religious-jap-Mala  text-center gap-[13px]">
+                        <img src='/images/religious-jap-malas.png' alt="" />
                         <p className='font-medium text-[20px] leading-[30px] text-[#120904]'>Religious jap Mala</p>
                     </div>
 
-                    <div className="worship-items  text-center gap-[13px]">
-                        <img src={clothings} alt="" />
+                    <div className="Clothings  text-center gap-[13px]">
+                        <img src='/images/clothing.png' alt="" />
                         <p className='font-medium text-[20px] leading-[30px] text-[#120904]'>Clothings</p>
                     </div>
 
-                    <div className="worship-items  text-center gap-[13px]">
-                        <img src={others} alt="" />
+                    <div className="Others  text-center gap-[13px]">
+                        <img src='/images/others.png' alt="" />
                         <p className='font-medium text-[20px] leading-[30px] text-[#120904]'>Others</p>
                     </div>
                 </div>
@@ -146,7 +135,7 @@ const Mathura = () => {
                 <div className='most-selling-products w-[80vw] mx-auto mt-[24px]'>
                     <div className='flex gap-10 mt-[10px] cards'>
                         <div className='relative'>
-                            <img src={rahda_krishna_2} alt="" className='w-[290px] h-[276px]' />
+                            <img src='/images/radha-krishna.png' alt="" className='w-[290px] h-[276px]' />
                             <div className='absolute top-4 right-2 bg-white h-[40px] w-[40px] flex items-center justify-center rounded-full'>
                                 <AiOutlineHeart className='text-red-700 text-[20px]' />
                             </div>
@@ -158,7 +147,7 @@ const Mathura = () => {
                         </div>
 
                         <div className='relative'>
-                            <img src={unknown_god} alt="" className='w-[290px] h-[276px]' />
+                            <img src='/images/radha-banner.png' alt="" className='w-[290px] h-[276px]' />
                             <div className='absolute top-4 right-2 bg-white h-[40px] w-[40px] flex items-center justify-center rounded-full'>
                                 <AiOutlineHeart className='text-red-700 text-[20px]' />
                             </div>
@@ -170,7 +159,7 @@ const Mathura = () => {
                         </div>
 
                         <div className='relative'>
-                            <img src={ramayana} alt="" className='w-[290px] h-[276px]' />
+                            <img src='/images/ramayan.png' alt="" className='w-[290px] h-[276px]' />
                             <div className='absolute top-4 right-2 bg-white h-[40px] w-[40px] flex items-center justify-center rounded-full'>
                                 <AiOutlineHeart className='text-red-700 text-[20px]' />
                             </div>
@@ -182,7 +171,7 @@ const Mathura = () => {
                         </div>
 
                         <div className='relative'>
-                            <img src={mala} alt="" className='w-[290px] h-[276px]' />
+                            <img src='/images/mala.png' alt="" className='w-[290px] h-[276px]' />
                             <div className='absolute top-4 right-2 bg-white h-[40px] w-[40px] flex items-center justify-center rounded-full'>
                                 <AiOutlineHeart className='text-red-700 text-[20px]' />
                             </div>
@@ -198,7 +187,7 @@ const Mathura = () => {
                 <div className='most-selling-products w-[80vw] mx-auto mt-[24px] '>
                     <div className='flex gap-10 mt-[10px] cards'>
                         <div className='relative'>
-                            <img src={laddu_Store} alt="" className='w-[290px] h-[276px]' />
+                            <img src='/images/ladduRakhneWala.png' alt="" className='w-[290px] h-[276px]' />
                             <div className='absolute top-4 right-2 bg-white h-[40px] w-[40px] flex items-center justify-center rounded-full'>
                                 <AiOutlineHeart className='text-red-700 text-[20px]' />
                             </div>
@@ -210,7 +199,7 @@ const Mathura = () => {
                         </div>
 
                         <div className='relative'>
-                            <img src={ramanayan} alt="" className='w-[290px] h-[276px]' />
+                            <img src='/images/ramayan.png' alt="" className='w-[290px] h-[276px]' />
                             <div className='absolute top-4 right-2 bg-white h-[40px] w-[40px] flex items-center justify-center rounded-full'>
                                 <AiOutlineHeart className='text-red-700 text-[20px]' />
                             </div>
@@ -222,7 +211,7 @@ const Mathura = () => {
                         </div>
 
                         <div className='relative'>
-                            <img src={Sandalwood} alt="" className='w-[290px] h-[276px]' />
+                            <img src='/images/chandanKilakdi.png' alt="" className='w-[290px] h-[276px]' />
                             <div className='absolute top-4 right-2 bg-white h-[40px] w-[40px] flex items-center justify-center rounded-full'>
                                 <AiOutlineHeart className='text-red-700 text-[20px]' />
                             </div>
@@ -234,7 +223,7 @@ const Mathura = () => {
                         </div>
 
                         <div className='relative'>
-                            <img src={shankh} alt="" className='w-[290px] h-[276px]' />
+                            <img src='/images/shankh.png' alt="" className='w-[290px] h-[276px]' />
                             <div className='absolute top-4 right-2 bg-white h-[40px] w-[40px] flex items-center justify-center rounded-full'>
                                 <AiOutlineHeart className='text-red-700 text-[20px]' />
                             </div>
@@ -250,7 +239,7 @@ const Mathura = () => {
                 <div className='most-selling-products w-[80vw] mx-auto mt-[24px] mb-10'>
                     <div className='flex gap-10 mt-[10px] cards'>
                         <div className='relative'>
-                            <img src={peacock} alt="" className='w-[290px] h-[276px]' />
+                            <img src='/images/peacock.png' alt="" className='w-[290px] h-[276px]' />
                             <div className='absolute top-4 right-2 bg-white h-[40px] w-[40px] flex items-center justify-center rounded-full'>
                                 <AiOutlineHeart className='text-red-700 text-[20px]' />
                             </div>
@@ -262,7 +251,7 @@ const Mathura = () => {
                         </div>
 
                         <div className='relative'>
-                            <img src={om_girl} alt="" className='w-[290px] h-[276px]' />
+                            <img src='/images/om ldki.png' alt="" className='w-[290px] h-[276px]' />
                             <div className='absolute top-4 right-2 bg-white h-[40px] w-[40px] flex items-center justify-center rounded-full'>
                                 <AiOutlineHeart className='text-red-700 text-[20px]' />
                             </div>
@@ -274,7 +263,7 @@ const Mathura = () => {
                         </div>
 
                         <div className='relative'>
-                            <img src={mala2} alt="" className='w-[290px] h-[276px]' />
+                            <img src='/images/mala2.png' alt="" className='w-[290px] h-[276px]' />
                             <div className='absolute top-4 right-2 bg-white h-[40px] w-[40px] flex items-center justify-center rounded-full'>
                                 <AiOutlineHeart className='text-red-700 text-[20px]' />
                             </div>
@@ -286,7 +275,7 @@ const Mathura = () => {
                         </div>
 
                         <div className='relative'>
-                            <img src={agarbatti} alt="" className='w-[290px] h-[276px]' />
+                            <img src='/images/agarbatti.png' alt="" className='w-[290px] h-[276px]' />
                             <div className='absolute top-4 right-2 bg-white h-[40px] w-[40px] flex items-center justify-center rounded-full'>
                                 <AiOutlineHeart className='text-red-700 text-[20px]' />
                             </div>

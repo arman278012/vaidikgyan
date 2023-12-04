@@ -3,9 +3,20 @@
     height: 813px;
 }
 
-.signup-page {
-    padding: 0 20px;
+/* .laptop-navbar {
+    display: none;
 }
+
+.top-bar {
+    display: none;
+}
+
+.footer {
+    display: none;
+}
+.Copyright{
+    display: none;
+} */
 
 .guest-btn {
     width: 416px;
@@ -13,12 +24,6 @@
     border-radius: 8px;
     border: 1px solid #FE6A00;
     color: #FE6A00;
-}
-
-.signup-content .right .form .name-input {
-    /* border-radius: 8px;
-    border: 1px solid black; */
-    /* outline: none; */
 }
 
 :focus-visible {
@@ -49,7 +54,7 @@
     }
 
     .signup-page {
-        margin-top: 150px;
+        /* margin-top: 150px; */
     }
 
     .signup-content {
@@ -86,6 +91,7 @@
     .signup-content .right {
         width: 100%;
         margin-top: -45px;
+        padding: 16px;
     }
 
     .signup-content .right .guest-btn {
@@ -126,7 +132,8 @@
     .signup-page .left {
         width: 94vw;
     }
-    .signup-page .right{
+
+    .signup-page .right {
         width: 100vw;
         display: flex;
         flex-direction: column;

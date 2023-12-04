@@ -10,6 +10,12 @@ export const signUpSchema = Yup.object({
         .required("Please enter your mobile number"),
     emailId: Yup.string().email('invalid email address').min(5).max(25)
         .required("Please enter your email Id"),
+    password: Yup.string()
+        .min(8, 'Password must be at least 8 characters')
+        .required('Password is required'),
+    confirm_password: Yup.string()
+        .oneOf([Yup.ref('password'), null], 'Passwords must match')
+        .required('Confirm Password is required'),
     accepted: Yup
         .boolean()
         .oneOf([true], 'You must agree to the terms and conditions')

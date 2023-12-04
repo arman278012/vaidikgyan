@@ -28,14 +28,19 @@
     .shop-by-categories {
         width: 80%;
     }
-
-    .shop-by-categories p {
-        font-size: 24px;
+    .worship-items p{
+        /* font-size: 12px; */
     }
 
+    /* .shop-by-categories p {
+        font-size: 24px;
+    } */
+
     .shopping-items {
+        height: 200px;
         overflow-y: hidden;
         overflow-x: scroll;
+        justify-content: flex-start;
     }
 
     .top-line .All-Products {
@@ -125,5 +130,8 @@
     .Deity-Clothes,
     .Chandan-Tilak {
         height: 35px;
+    }
+    .all-products .top-line .All-Products{
+        font-size: 28px;
     }
 }

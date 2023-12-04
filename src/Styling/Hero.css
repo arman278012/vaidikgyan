@@ -133,6 +133,7 @@ body {
         height: 200px;
         overflow-y: hidden;
         gap: 5px;
+        justify-content: flex-start;
     }
 
     .second-bannner .Mathura,
@@ -398,5 +399,5 @@ body {
         left: 0px;
     }
 
-    
+
 }

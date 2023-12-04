@@ -1,7 +1,3 @@
-.login-page {
-    padding: 0px 20px;
-}
-
 .login-page .left {
     background: linear-gradient(to right, #FF5D00, #FF9501, #FE6A00);
     height: 813px;
@@ -11,6 +7,23 @@
     border-radius: 8px;
     border: 1px solid black;
 }
+
+
+/* .laptop-navbar {
+    display: none;
+}
+
+.top-bar {
+    display: none;
+}
+
+.footer {
+    display: none;
+}
+
+.Copyright {
+    display: none;
+} */
 
 @media only screen and (min-width: 340px) and (max-width: 767px) {
     * {

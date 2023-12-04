@@ -1,5 +1,6 @@
 .footer {
-    background-image: url('../Images/footerImage.png');
+    /* background-image: url('/vaidikgyan/public/images/footerImage.png'); */
+    background: linear-gradient(to right, #FF5D00, #FF9501, #FE6A00);
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;

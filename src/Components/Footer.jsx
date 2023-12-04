@@ -6,23 +6,20 @@ import { AiFillYoutube } from 'react-icons/ai'
 import { BsInstagram } from 'react-icons/bs'
 
 const Footer = () => {
-
-    const logo = require('../Images/Content.png')
-    const footer_image = require('../Images/footer-ellipse-real.png')
     return (
 
         <div>
             <div className='footer flex p-12 justify-around w-[100vw] mx-auto relative'>
 
                 <div className='footer-img'>
-                    <img src={footer_image} alt="" className='absolute top-[-250px] right-0 opacity-40' />
+                    <img src='/images/footer-ellipse-real.png' alt="" className='absolute top-[-250px] right-0 opacity-40' />
                 </div>
 
                 {/*Footer column-1 detials */}
                 <div className='compnay-details w-[20vw]'>
                     <div className='flex gap-3'>
                         <div className='w-[44px]'>
-                            <img src={logo} alt="" className='' />
+                            <img src='/images/Content.png' alt="" className='' />
                         </div>
                         <div className='flex flex-col'>
                             <div><p className='text-[18px] font-extrabold text-white'>Vaidik Gyan and Store</p></div>
@@ -79,7 +76,7 @@ const Footer = () => {
                     </ul>
                 </div>
             </div>
-            <div className='text-center mb-5 mt-5'>
+            <div className='text-center mb-5 mt-5 Copyright'>
                 <p className='font-semibold'>Developed By Apponward Technology | Copyright @2023</p>
             </div>
         </div>

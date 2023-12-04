@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import '../Styling/SignUp.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { signUpSchema } from './Validations/FormValidations'
@@ -11,18 +11,15 @@ import PhoneInput from 'react-phone-number-input'
 
 const SignUp = () => {
 
-    const { phone, setPhone } = useContext(AppContext)
+    const { phone, setPhone, setUser1, setHideNav } = useContext(AppContext)
+    // const dispatch = useDispatch()
 
-    console.log("phine number", phone)
-
-    const logo = require('../Images/Content(1).png')
-    const circle_1 = require('../Images/sign-top-circle.png')
-    const circle_2 = require('../Images/sign-2-circle.png')
-    const circle_3 = require('../Images/sign-3-circle.png')
-    const circle_4 = require('../Images/sign-4-circle.png')
-    const circle_5 = require('../Images/sign-5-circle.png')
+    console.log("phone number", phone)
 
     const navigate = useNavigate();
+
+
+
 
     {/*Send otp code is written here */ }
     const sendOtp = async () => {
@@ -30,8 +27,8 @@ const SignUp = () => {
             console.log("inside try block")
             const recaptcha = new RecaptchaVerifier(auth, "recaptcha", {})
             const confirmation = await signInWithPhoneNumber(auth, phone, recaptcha)
+            setUser1(confirmation)
             console.log(confirmation)
-
         }
         catch (err) {
             console.log(err)
@@ -45,6 +42,8 @@ const SignUp = () => {
         fullName: "",
         mobileNumber: "",
         emailId: "",
+        password: "",
+        confirm_password: "",
         accepted: false,
     })
 
@@ -52,6 +51,8 @@ const SignUp = () => {
         fullName: "",
         mobileNumber: "",
         emailId: "",
+        password: "",
+        confirm_password: "",
         accepted: false,
     })
 
@@ -85,7 +86,7 @@ const SignUp = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const { fullName, mobileNumber, emailId, accepted } = user;
+        const { fullName, mobileNumber, emailId, password, confirm_password, accepted } = user;
 
         const response = await fetch
             (
@@ -99,6 +100,8 @@ const SignUp = () => {
                         fullName,
                         mobileNumber,
                         emailId,
+                        password,
+                        confirm_password,
                         accepted
                     })
                 }
@@ -119,19 +122,21 @@ const SignUp = () => {
         navigate('/otp')
     }
 
-    const callBothFunctions = (e) => {
-        sendOtp();
-        // handleSubmit(e);
+    const callBothFunctions = async (e) => {
+        await handleSubmit(e);
+        await sendOtp();
+        // dispatch(PostItemsData(user))
+        setHideNav(false)
     }
 
     return (
-        <div className='signup-page mb-10 mt-10 '>
+        <div className='signup-page'>
             <div className='flex gap-10 signup-content'>
                 <div className='left w-[40vw] h-auto relative  '>
 
                     {/*Logo image is here */}
                     <div className="logo  top-[42%] absolute right-[42%]">
-                        <Link to={'/'}><img src={logo} alt="" className='h-[120px] w-[120px]' /></Link>
+                        <Link to={'/'}><img src='/images/Content(1).png' alt="" className='h-[120px] w-[120px]' /></Link>
                     </div>
 
                     {/*Vaidik gyan and store para-- */}
@@ -143,27 +148,27 @@ const SignUp = () => {
 
                     {/*top-1 circle image is here */}
                     <div className='circle-1 absolute top-[-50px] left-[72px]'>
-                        <img src={circle_1} alt="" />
+                        <img src='/images/sign-top-circle.png' alt="" />
                     </div>
 
                     {/*top-2 circle image is here */}
                     <div className='circle-2 absolute top-[157px] left-[429px]'>
-                        <img src={circle_2} alt="" />
+                        <img src='/images/sign-2-circle.png' alt="" />
                     </div>
 
                     {/*top-3 circle image is here */}
                     <div className='circle-3 absolute top-[390px] left-[52px]'>
-                        <img src={circle_3} alt="" />
+                        <img src='/images/sign-3-circle.png' alt="" />
                     </div>
 
                     {/*top-4 circle image is here */}
                     <div className='circle-4 absolute top-[653px] left-[401px]'>
-                        <img src={circle_4} alt="" />
+                        <img src='/images/sign-4-circle.png' alt="" />
                     </div>
 
                     {/*top-5 circle image is here */}
                     <div className='circle-5 absolute top-[693px] left-[170px]'>
-                        <img src={circle_5} alt="" />
+                        <img src='/images/sign-5-circle.png' alt="" />
                     </div>
 
                 </div>
@@ -215,19 +220,6 @@ const SignUp = () => {
                                     onBlur={handleBlur}
                                     placeholder='eg.(808 555-0111)'
                                 />
-                                {/* <input
-                                    type="tel"
-                                    name='mobileNumber'
-                                    value={user.mobileNumber}
-                                    placeholder='eg.(808 555-0111)'
-                                    className='name-input w-[416px] h-[52px] p-4'
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                /> */}
-                                {/* <p className='text-red-700'>{formErrors.mobileNumber && <div>{formErrors.mobileNumber}</div>}</p> */}
-                                {/* {formErrors.mobileNumber && touched.mobileNumber ? (
-                                    <p className='text-red-700'>{formErrors.mobileNumber}</p>
-                                ) : null} */}
                             </div>
 
                             <div className='flex flex-col mt-4 gap-2'>
@@ -247,13 +239,46 @@ const SignUp = () => {
                                 ) : null} */}
                             </div>
 
+                            <div className='flex flex-col mt-4 gap-2'>
+                                <p>Create Password</p>
+                                <input
+                                    type="password"
+                                    name='password'
+                                    value={user.password}
+                                    placeholder='create password here'
+                                    className='name-input w-[416px] h-[52px] p-4 outline-none'
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                />
+                                <p className='text-red-700'>{formErrors.password && <div>{formErrors.password}</div>}</p>
+                                {/* <p className='text-red-700'>{formErrors.emailId && <div>{formErrors.emailId}</div>}</p> */}
+                                {/* {formErrors.emailId && touched.emailId ? (
+                                    <p className='text-red-700'>{formErrors.emailId}</p>
+                                ) : null} */}
+                            </div>
+
+                            <div className='flex flex-col mt-4 gap-2'>
+                                <p>Confirm Password here</p>
+                                <input
+                                    type="password"
+                                    name='confirm_password'
+                                    value={user.confirm_password}
+                                    placeholder='confirm password here'
+                                    className='name-input w-[416px] h-[52px] p-4 outline-none'
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                />
+                                <p className='text-red-700'>{formErrors.confirm_password && <div>{formErrors.confirm_password}</div>}</p>
+                                {/* {formErrors.emailId && touched.emailId ? (
+                                    <p className='text-red-700'>{formErrors.emailId}</p>
+                                ) : null} */}
+                            </div>
+
                             <div className="terms-cndtn flex mt-4 gap-2">
                                 <input
                                     type="checkbox"
                                     name='accepted'
                                     className='mt-[3px]'
-                                // onChange={handleChange}
-                                // onBlur={handleBlur}
                                 />
                                 <p>I have accepted the <span className='Terms-and-Conditions'>Terms and Conditions</span></p>
 
@@ -269,14 +294,14 @@ const SignUp = () => {
                     <div className="signup-btn mt-10">
                         <button onClick={(e) => callBothFunctions(e)}
                             type='submit'
-                            className='signup-button flex justify-center items-center font-bold'>Sign Up</button>
+                            className='signup-button flex justify-center items-center font-bold'
+                        >Sign Up</button>
                     </div>
-
-
+                    <div id='recaptcha'></div>
                     <p>Already have an account? <span className='Already-have-an-account'>
                         <Link to={'/signin'}>Login</Link></span> </p>
                 </div>
-                <div id='recaptcha'></div>
+
             </div>
 
         </div>

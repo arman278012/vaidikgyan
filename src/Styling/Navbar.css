@@ -5,6 +5,14 @@
     border-radius: 18px;
 }
 
+.laptop-navbar {
+    display: block;
+}
+
+.mobile-navbar {
+    display: none;
+}
+
 .categories {
     height: 36px;
     width: 131px;
@@ -50,7 +58,7 @@
 
 .Deity-status-and-Idols {
     height: 36px;
-    width: 172px;
+    width: 182px;
     border-radius: 18px;
     background-color: #F3F9FB;
 }
@@ -88,6 +96,14 @@
 /*Responsive css */
 @media(max-width:767px) {
     .hamburger-menu {
+        display: block;
+    }
+
+    .laptop-navbar {
+        display: none;
+    }
+
+    .mobile-navbar {
         display: block;
     }
 
@@ -151,7 +167,7 @@
     .vertical-bar {
         font-size: 25px;
         position: absolute;
-        right: 21px;
+        right: 41px;
         font-size: 30px;
         /* color: rgb(0, 0, 0); */
         color: #fff;
@@ -221,8 +237,5 @@
         border-radius: 18px;
         background-color: #F3F9FB;
         font-size: 13px;
-    }
-    .main-navbar{
-
     }
 }

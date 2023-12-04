@@ -12,16 +12,9 @@ import { AppContext } from './AuthContext'
 
 const Login = () => {
 
-    const { phone, setPhone, setUser } = useContext(AppContext)
+    const { phone, setPhone, setUser1, setHideNav } = useContext(AppContext)
 
     const navigate = useNavigate()
-
-    const logo = require('../Images/Content(1).png')
-    const circle_1 = require('../Images/sign-top-circle.png')
-    const circle_2 = require('../Images/sign-2-circle.png')
-    const circle_3 = require('../Images/sign-3-circle.png')
-    const circle_4 = require('../Images/sign-4-circle.png')
-    const circle_5 = require('../Images/sign-5-circle.png')
 
 
 
@@ -29,7 +22,7 @@ const Login = () => {
         try {
             const recaptcha = new RecaptchaVerifier(auth, "recaptcha", {})
             const confirmation = await signInWithPhoneNumber(auth, phone, recaptcha)
-            setUser(confirmation)
+            setUser1(confirmation)
             console.log(confirmation)
         }
         catch (err) {
@@ -42,13 +35,13 @@ const Login = () => {
 
 
     return (
-        <div className='login-page mb-10 mt-10'>
+        <div className='login-page'>
             <div className='flex gap-10 login-content'>
                 <div className='left w-[40vw] h-auto relative  '>
 
                     {/*Logo image is here */}
                     <div className="logo  top-[42%] absolute right-[42%]">
-                        <img src={logo} alt="" className='h-[120px] w-[120px]' />
+                        <img src='images/Content(1).png' alt="" className='h-[120px] w-[120px]' />
                     </div>
 
                     {/*Vaidik gyan and store para-- */}
@@ -60,27 +53,27 @@ const Login = () => {
 
                     {/*top-1 circle image is here */}
                     <div className='circle-1 absolute top-[-50px] left-[72px]'>
-                        <img src={circle_1} alt="" />
+                        <img src='/images/sign-top-circle.png' alt="" />
                     </div>
 
                     {/*top-2 circle image is here */}
                     <div className='circle-2 absolute top-[157px] left-[429px]'>
-                        <img src={circle_2} alt="" />
+                        <img src='/images/sign-2-circle.png' alt="" />
                     </div>
 
                     {/*top-3 circle image is here */}
                     <div className='circle-3 absolute top-[390px] left-[52px]'>
-                        <img src={circle_3} alt="" />
+                        <img src='/images/sign-3-circle.png' alt="" />
                     </div>
 
                     {/*top-4 circle image is here */}
                     <div className='circle-4 absolute top-[653px] left-[401px]'>
-                        <img src={circle_4} alt="" />
+                        <img src='/images/sign-4-circle.png' alt="" />
                     </div>
 
                     {/*top-5 circle image is here */}
                     <div className='circle-5 absolute top-[693px] left-[170px]'>
-                        <img src={circle_5} alt="" />
+                        <img src='/images/sign-5-circle.png' alt="" />
                     </div>
 
                 </div>
@@ -127,7 +120,7 @@ const Login = () => {
                     </div>
 
                     <p>Don't have an account? <span className='Already-have-an-account'>
-                        <Link to={'/signup'}>Sign In</Link> </span> </p>
+                        <Link to={'/signup'} onClick={() => setHideNav(false)}>Sign In</Link> </span> </p>
                 </div>
             </div>
 

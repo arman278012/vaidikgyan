@@ -4,14 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import AuthContext from './Components/AuthContext';
-import Toaster from 'react-hot-toast'
-
+import { Toaster } from 'react-hot-toast';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
   <AuthContext>
-    <App />
-    {/* <Toaster /> */}
+
+      <App />
+      <Toaster />
+
   </AuthContext>
 );
 
