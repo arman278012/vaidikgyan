@@ -12,69 +12,80 @@
     border: 1px solid black;
 }
 
-@media only screen and (min-width: 340px) and (max-width: 767px){
-    *{
+@media only screen and (min-width: 340px) and (max-width: 767px) {
+    * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
     }
-    .login-content{
+
+    .login-content {
         flex-direction: column;
     }
+
     .login-content .left {
         width: 100%;
         height: 400px;
     }
+
     .login-content .left .logo {
         top: 14%;
         right: 35%;
 
     }
-    .login-content  .left .logo img {
+
+    .login-content .left .logo img {
         width: 90px;
         height: 90px;
     }
+
     .vaidik-gyan-para .para-1 {
         font-size: 20px;
         top: 40%;
         right: 19%;
     }
+
     .vaidik-gyan-para .para-2 {
         top: 50%;
         right: 23%;
     }
+
     .login-content .right {
         width: 100%;
     }
-    .login-page{
+
+    .login-page {
         margin-top: 150px;
     }
-    .login-page .right{
+
+    .login-page .right {
         margin-top: -64px;
     }
-    .login-content .right .form .phone-input{
+
+    .login-content .right .form .phone-input {
         width: 296px;
     }
-    /* .login-content .right  .signup-btn{
-        
-    } */
-    .login-content .right .signup-btn .signup-button{
+
+    .login-content .right .signup-btn .signup-button {
         width: 296px;
     }
-    .circle-5{
+
+    .circle-5 {
         display: none;
     }
 }
 
 
-@media only screen and (min-width: 767px) and (max-width: 1024px){
-    .login-content{
+@media only screen and (min-width: 767px) and (max-width: 1024px) {
+    .login-content {
         flex-direction: column;
     }
-    .login-content .left{
+
+    .login-content .left {
         width: 94vw;
     }
-    .login-content .right{
+
+    .login-content .right {
         margin-top: -10px;
         width: 100vw;
         display: flex;
