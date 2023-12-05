@@ -5,18 +5,17 @@ import { RecaptchaVerifier, signInWithPhoneNumber } from 'firebase/auth'
 import { auth } from '../Firebase/SetUp'
 import { useNavigate } from 'react-router'
 import toast from 'react-hot-toast'
-import { useDispatch } from 'react-redux'
-import { PostItemsData } from '../redux/action'
+
+
 
 const OtpVerification = () => {
 
     const [otp, setOtp] = useState("")
 
-    const dispatch = useDispatch()
 
-
+    
     const { user, setShowSuccessModal, setHideNav, checkSignupLogin, setCheckSignupLogin, setStoreOtp, phone, user1, setCheckOtp,
-        allUserDetails, setAllUserDetails, verifyOtp, setVerifyOtp, storeOtp } = useContext(AppContext)
+        verifyOtp, setVerifyOtp, storeOtp } = useContext(AppContext)
 
     const inputRefs = [useRef(), useRef(), useRef(), useRef(), useRef(), useRef()];
 
@@ -113,12 +112,12 @@ const OtpVerification = () => {
             setShowSuccessModal(true)
             toast.success("signup Successfull...")
             setHideNav(false)
-            // dispatch(PostItemsData(user))
-            setAllUserDetails({...allUserDetails}, user)
+           
+           
             navigate('/')
         }
         catch (err) {
-            dispatch(PostItemsData(user))
+           
             toast.error("Please enter the valid Otp!!")
         }
     }
