@@ -5,13 +5,18 @@ import { RecaptchaVerifier, signInWithPhoneNumber } from 'firebase/auth'
 import { auth } from '../Firebase/SetUp'
 import { useNavigate } from 'react-router'
 import toast from 'react-hot-toast'
+import { useDispatch } from 'react-redux'
+import { PostItemsData } from '../redux/action'
 
 const OtpVerification = () => {
 
     const [otp, setOtp] = useState("")
 
+    const dispatch = useDispatch()
 
-    const { showSuccessModal, setShowSuccessModal, setHideNav, checkSignupLogin, setCheckSignupLogin, setStoreOtp, phone, user1, setCheckOtp, verifyOtp, setVerifyOtp, storeOtp } = useContext(AppContext)
+
+    const { user, setShowSuccessModal, setHideNav, checkSignupLogin, setCheckSignupLogin, setStoreOtp, phone, user1, setCheckOtp,
+        allUserDetails, setAllUserDetails, verifyOtp, setVerifyOtp, storeOtp } = useContext(AppContext)
 
     const inputRefs = [useRef(), useRef(), useRef(), useRef(), useRef(), useRef()];
 
@@ -35,7 +40,6 @@ const OtpVerification = () => {
         }
     };
     console.log(verifyOtp)
-
 
     const handleKeyDown = (e, index) => {
         console.log("handle key down function is working...");
@@ -104,18 +108,17 @@ const OtpVerification = () => {
 
         try {
             const otpData = await user1.confirm(str)
-            console.log(otpData)
             setCheckOtp(str)
-            console.log("real otp entered 0n 102:", str)
+            // console.log("real otp entered 0n 102:", str)
             setShowSuccessModal(true)
             toast.success("signup Successfull...")
             setHideNav(false)
+            // dispatch(PostItemsData(user))
+            setAllUserDetails({...allUserDetails}, user)
             navigate('/')
-
         }
         catch (err) {
-            console.log("It also enters in catch block")
-            console.log(err)
+            dispatch(PostItemsData(user))
             toast.error("Please enter the valid Otp!!")
         }
     }

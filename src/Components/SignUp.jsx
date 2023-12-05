@@ -11,15 +11,12 @@ import PhoneInput from 'react-phone-number-input'
 
 const SignUp = () => {
 
-    const { phone, setPhone, setUser1, setHideNav } = useContext(AppContext)
+    const { phone, setPhone, setUser1, setHideNav, user, setUser, setCheckSignupLogin } = useContext(AppContext)
     // const dispatch = useDispatch()
 
     console.log("phone number", phone)
 
     const navigate = useNavigate();
-
-
-
 
     {/*Send otp code is written here */ }
     const sendOtp = async () => {
@@ -37,15 +34,6 @@ const SignUp = () => {
         // console.log("send otp function is called...")
     }
 
-
-    const [user, setUser] = useState({
-        fullName: "",
-        mobileNumber: "",
-        emailId: "",
-        password: "",
-        confirm_password: "",
-        accepted: false,
-    })
 
     const [formErrors, setFormErrors] = useState({
         fullName: "",
@@ -86,7 +74,7 @@ const SignUp = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const { fullName, mobileNumber, emailId, password, confirm_password, accepted } = user;
+        const { fullName, mobileNo, email, password, confirm_password, accepted } = user;
 
         const response = await fetch
             (
@@ -98,8 +86,8 @@ const SignUp = () => {
                     },
                     body: JSON.stringify({
                         fullName,
-                        mobileNumber,
-                        emailId,
+                        mobileNo,
+                        email,
                         password,
                         confirm_password,
                         accepted
@@ -122,9 +110,15 @@ const SignUp = () => {
         navigate('/otp')
     }
 
-    const callBothFunctions = async (e) => {
-        await handleSubmit(e);
-        await sendOtp();
+    const mobileFun = () => {
+        user.mobileNo = phone
+    }
+
+    const callBothFunctions = (e) => {
+        // handleSubmit(e);
+        mobileFun()
+        sendOtp();
+        setCheckSignupLogin(1)
         // dispatch(PostItemsData(user))
         setHideNav(false)
     }
@@ -213,8 +207,8 @@ const SignUp = () => {
                                 <p>Mobile Number</p>
                                 <PhoneInput
                                     defaultCountry="IN"
-                                    className='name-input w-[416px] h-[52px] p-4 '
-                                    name="mobileNumber"
+                                    className='name-input w-[416px] h-[52px] p-4'
+                                    name="mobileNo"
                                     value={phone}
                                     onChange={(phone) => setPhone(phone)}
                                     onBlur={handleBlur}
@@ -226,8 +220,8 @@ const SignUp = () => {
                                 <p>Email ID(optional)</p>
                                 <input
                                     type="text"
-                                    name='emailId'
-                                    value={user.emailId}
+                                    name='email'
+                                    value={user.email}
                                     placeholder='eg.debra.holt@example.com'
                                     className='name-input w-[416px] h-[52px] p-4 outline-none'
                                     onChange={handleChange}

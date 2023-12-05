@@ -17,12 +17,24 @@ const AuthContext = ({ children }) => {
     const [checkSignupLogin, setCheckSignupLogin] = useState(null)
     const [showSuccessModal, setShowSuccessModal] = useState(false)
     const [logOut, setLogOut] = useState(1)
+    const [user, setUser] = useState({
+        fullName: "",
+        mobileNo: phone,
+        email: "",
+        password: "",
+        confirm_password: "",
+        accepted: false,
+    })
+    const [allUserDetails, setAllUserDetails] = useState([])
+    console.log(allUserDetails)
 
-
+    console.log(phone)
+    console.log(user)
     return (
         <AppContext.Provider value={{
             storeOtp, setStoreOtp, phone, setPhone, user1, setUser1, checkOtp, setCheckOtp, showMedia, setShowMedia, verifyOtp, setVerifyOtp,
             isSticky, setSticky, hideNav, setHideNav, checkSignupLogin, setCheckSignupLogin, showSuccessModal, setShowSuccessModal, logOut, setLogOut
+            , user, setUser, allUserDetails, setAllUserDetails
         }}>
             {children}
         </AppContext.Provider>
