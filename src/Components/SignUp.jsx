@@ -8,9 +8,13 @@ import { AppContext } from './AuthContext'
 import { RecaptchaVerifier, signInWithPhoneNumber } from 'firebase/auth'
 import { auth } from '../Firebase/SetUp'
 import PhoneInput from 'react-phone-number-input'
+import { useDispatch, useSelector } from 'react-redux'
+import { PostItemsData } from '../redux/action'
 
 const SignUp = () => {
-
+    const dispatch=useDispatch()
+    const dt=useSelector((pre)=>pre.reducer.status)
+    console.log(dt)
     const { phone, setPhone, setUser1, setHideNav, user, setUser, setCheckSignupLogin } = useContext(AppContext)
     // const dispatch = useDispatch()
 
@@ -117,10 +121,20 @@ const SignUp = () => {
     const callBothFunctions = (e) => {
         // handleSubmit(e);
         mobileFun()
-        sendOtp();
-        setCheckSignupLogin(1)
-        // dispatch(PostItemsData(user))
-        setHideNav(false)
+        dispatch(PostItemsData(user))
+       
+        if(dt<=400||dt>=499){
+        toast.success("User is already Register...")
+       }else{
+      
+      
+            sendOtp();
+            setCheckSignupLogin(1)
+            // dispatch(PostItemsData(user))
+            setHideNav(false)
+           }
+       
+      
     }
 
     return (

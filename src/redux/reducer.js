@@ -1,17 +1,20 @@
 import { POST_ITEMS_SUCCESS } from "./actionType";
 
 const listStates = {
-  productData: [],
+ 
+ status: "",
 };
 
 function reducer(state = listStates, { type, payload }) {
   switch (type) {
     case POST_ITEMS_SUCCESS:
-      return { ...state};
-    
+      return {
+        ...state,status:payload
+       };
+
     default:
       return state;
   }
 }
 
-export default reducer;
+export default reducer;
